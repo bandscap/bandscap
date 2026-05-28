@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Band Scap Escapamentos – Desde 1974 | Vila Ema, São Paulo</title>
+  <meta name="description" content="Band Scap Escapamentos: referência em escapamentos em São Paulo desde 1974. Venda, instalação e manutenção de escapamentos esportivos, originais e inox. Vila Ema – SP." />
+  <meta name="keywords" content="escapamentos São Paulo, escapamento esportivo SP, escapamento inox, silenciador, catalisador, Vila Ema escapamentos" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — BAND SCAP
+       Paleta: preto industrial + vermelho + azul + branco (estilo Croácia)
+    ============================================================ */
+    :root {
+      --brand-orange: #CC1020;
+      --brand-orange-dark: #A00D1A;
+      --brand-blue: #003F8A;
+      --brand-blue-light: #0051B4;
+      --brand-black: #0D0D0D;
+      --brand-dark: #111620;
+      --brand-card: #161B26;
+      --brand-border: #232B3A;
+      --brand-steel: #8A8A8A;
+      --brand-light: #EEF2F8;
+      --brand-white: #FFFFFF;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --radius: 4px;
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--brand-black);
+      color: var(--brand-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ---- Utility ---- */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--brand-white);
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand-orange);
+      color: var(--brand-white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .btn-primary:hover { background: var(--brand-orange-dark); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--brand-white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border-radius: var(--radius);
+      border: 2px solid var(--brand-border);
+      cursor: pointer;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .btn-outline:hover { border-color: var(--brand-orange); color: var(--brand-orange); }
+
+    /* ============================================================
+       HEADER / NAV
+    ============================================================ */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--brand-border);
+      transition: background var(--transition);
+    }
+    /* Faixa tricolor no topo do header — vermelho, branco, azul */
+    #header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right,
+        #CC1020 0%, #CC1020 33.3%,
+        #FFFFFF 33.3%, #FFFFFF 66.6%,
+        #003F8A 66.6%, #003F8A 100%
+      );
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .logo-band {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: var(--brand-white);
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+    .logo-scap {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--brand-blue-light);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .logo-year {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      color: var(--brand-steel);
+      letter-spacing: 0.1em;
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-steel);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--brand-white); }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .whatsapp-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #25D366;
+      letter-spacing: 0.03em;
+      transition: opacity var(--transition);
+    }
+    .whatsapp-nav:hover { opacity: 0.8; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--brand-white);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--brand-dark);
+      border-top: 1px solid var(--brand-border);
+      padding: 20px;
+      gap: 4px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand-steel);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--brand-border);
+      transition: color var(--transition);
+    }
+    .mobile-nav a:hover { color: var(--brand-white); }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 60px;
+      background: var(--brand-black);
+    }
+
+    /* Diagonal stripe pattern background */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 60px,
+        rgba(244,97,10,0.03) 60px,
+        rgba(244,97,10,0.03) 61px
+      );
+      pointer-events: none;
+    }
+
+    /* Glow accent */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(ellipse, rgba(0,63,138,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 2px;
+      background: var(--brand-orange);
+    }
+    .hero-eyebrow span {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--brand-white);
+      margin-bottom: 24px;
+    }
+    .hero-title .highlight {
+      color: var(--brand-orange);
+      -webkit-text-stroke: 0px;
+    }
+    .hero-title .outline-text {
+      -webkit-text-stroke: 2px rgba(255,255,255,0.15);
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--brand-steel);
+      max-width: 440px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+    }
+    .stat-item {}
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--brand-white);
+      line-height: 1;
+    }
+    .stat-number span { color: var(--brand-orange); }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--brand-steel);
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+    }
+    .hero-img-wrap {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--brand-card);
+    }
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9) saturate(1.1);
+    }
+
+    /* Orange accent bar */
+    .hero-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--brand-orange);
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: -16px; left: -16px;
+      background: var(--brand-blue);
+      color: var(--brand-white);
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 16px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; }
+      .hero-stats { gap: 20px; }
+    }
+
+    /* ============================================================
+       TRUST BAR
+    ============================================================ */
+    #trust {
+      background: var(--brand-blue);
+      padding: 16px 0;
+      overflow: hidden;
+    }
+    .trust-scroll {
+      display: flex;
+      gap: 48px;
+      animation: marquee 25s linear infinite;
+      white-space: nowrap;
+    }
+    .trust-scroll:hover { animation-play-state: paused; }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-white);
+    }
+    .trust-dot { width: 5px; height: 5px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       SERVIÇOS
+    ============================================================ */
+    #servicos {
+      padding: 100px 0;
+      background: var(--brand-black);
+    }
+    .section-header {
+      max-width: 560px;
+      margin-bottom: 60px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+      background: var(--brand-border);
+      border: 1px solid var(--brand-border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--brand-card);
+      padding: 36px 32px;
+      transition: background var(--transition);
+      position: relative;
+    }
+    .service-card:hover { background: #202020; }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--brand-orange);
+      transition: height 0.3s ease;
+    }
+    .service-card:hover::before { height: 100%; }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--brand-white);
+      margin-bottom: 10px;
+    }
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--brand-steel);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       DIFERENCIAIS / POR QUE BAND SCAP
+    ============================================================ */
+    #diferenciais {
+      padding: 100px 0;
+      background: var(--brand-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    #diferenciais::before {
+      content: '50+';
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: 20rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.02);
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .diferenciais-content .section-title { margin-bottom: 20px; }
+    .diferenciais-lead {
+      color: var(--brand-steel);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+    .diferenciais-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .diferencial-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .diferencial-check {
+      width: 24px;
+      height: 24px;
+      background: rgba(244,97,10,0.15);
+      border: 1px solid var(--brand-orange);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .diferencial-check svg { width: 12px; height: 12px; stroke: var(--brand-orange); }
+    .diferencial-text {
+      font-size: 0.95rem;
+      color: var(--brand-light);
+      line-height: 1.5;
+    }
+    .diferencial-text strong {
+      color: var(--brand-white);
+      font-weight: 600;
+    }
+
+    .diferenciais-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .diff-stat-card {
+      background: var(--brand-card);
+      border: 1px solid var(--brand-border);
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .diff-stat-card:first-child {
+      grid-column: 1 / -1;
+      background: var(--brand-blue);
+      border-color: var(--brand-blue);
+    }
+    .diff-stat-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--brand-white);
+      line-height: 1;
+    }
+    .diff-stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 6px;
+    }
+    .diff-stat-card:not(:first-child) .diff-stat-number { font-size: 2.4rem; }
+    .diff-stat-card:not(:first-child) .diff-stat-label { color: var(--brand-steel); }
+
+    @media (max-width: 768px) {
+      .diferenciais-grid { grid-template-columns: 1fr; }
+      .diferenciais-visual { order: -1; }
+    }
+
+    /* ============================================================
+       MARCAS / COMPATIBILIDADE
+    ============================================================ */
+    #marcas {
+      padding: 80px 0;
+      background: var(--brand-black);
+      border-top: 1px solid var(--brand-border);
+    }
+    .marcas-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .marcas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 2px;
+      background: var(--brand-border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .marca-item {
+      background: var(--brand-card);
+      padding: 24px 16px;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brand-steel);
+      transition: color var(--transition), background var(--transition);
+    }
+    .marca-item:hover { color: var(--brand-white); background: #1f1f1f; }
+
+    /* ============================================================
+       DEPOIMENTOS
+    ============================================================ */
+    #depoimentos {
+      padding: 100px 0;
+      background: var(--brand-dark);
+    }
+    .depoimentos-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .rating-summary {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .rating-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--brand-white);
+      line-height: 1;
+    }
+    .rating-stars {
+      color: #FFB800;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+    .rating-count {
+      font-size: 0.8rem;
+      color: var(--brand-steel);
+    }
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .depoimento-card {
+      background: var(--brand-card);
+      border: 1px solid var(--brand-border);
+      border-radius: 8px;
+      padding: 28px;
+      transition: border-color var(--transition);
+    }
+    .depoimento-card:hover { border-color: rgba(244,97,10,0.4); }
+    .dep-stars { color: #FFB800; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 14px; }
+    .dep-text {
+      font-size: 0.92rem;
+      color: var(--brand-light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .dep-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .dep-avatar {
+      width: 36px;
+      height: 36px;
+      background: var(--brand-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--brand-white);
+      flex-shrink: 0;
+    }
+    .dep-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--brand-white);
+    }
+    .dep-source {
+      font-size: 0.75rem;
+      color: var(--brand-steel);
+    }
+
+    /* ============================================================
+       GALERIA
+    ============================================================ */
+    #galeria {
+      padding: 100px 0;
+      background: var(--brand-black);
+    }
+    .galeria-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      gap: 8px;
+    }
+    .galeria-item {
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: var(--brand-card);
+      position: relative;
+    }
+    .galeria-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: auto;
+    }
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .galeria-item:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+    .galeria-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .galeria-item:hover .overlay { opacity: 1; }
+    .galeria-instagram-cta {
+      text-align: center;
+      margin-top: 36px;
+    }
+    .galeria-instagram-cta p {
+      color: var(--brand-steel);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 600px) {
+      .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+      .galeria-item:first-child { grid-column: span 1; grid-row: span 1; }
+    }
+
+    /* ============================================================
+       LOCALIZAÇÃO / CONTATO
+    ============================================================ */
+    #contato {
+      padding: 100px 0;
+      background: var(--brand-dark);
+    }
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contato-info .section-title { margin-bottom: 32px; }
+    .contato-items {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .contato-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .contato-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(244,97,10,0.12);
+      border: 1px solid rgba(244,97,10,0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+    .contato-label {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-orange);
+      margin-bottom: 4px;
+    }
+    .contato-value {
+      font-size: 0.95rem;
+      color: var(--brand-light);
+      line-height: 1.5;
+    }
+    .contato-value a { transition: color var(--transition); }
+    .contato-value a:hover { color: var(--brand-orange); }
+
+    .horario-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: var(--brand-card);
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid var(--brand-border);
+    }
+    .horario-row {
+      display: contents;
+    }
+    .horario-dia {
+      font-size: 0.85rem;
+      color: var(--brand-steel);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--brand-border);
+    }
+    .horario-hora {
+      font-size: 0.85rem;
+      color: var(--brand-light);
+      font-weight: 600;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--brand-border);
+      text-align: right;
+    }
+
+    /* Map embed area */
+    .contato-map {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--brand-border);
+      background: var(--brand-card);
+    }
+    .contato-map iframe {
+      width: 100%;
+      height: 380px;
+      border: none;
+      display: block;
+    }
+    .map-cta {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--brand-border);
+    }
+    .map-address {
+      font-size: 0.85rem;
+      color: var(--brand-steel);
+    }
+
+    @media (max-width: 768px) {
+      .contato-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       CTA BANNER
+    ============================================================ */
+    #cta-banner {
+      padding: 80px 0;
+      background: var(--brand-orange);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(0,0,0,0.06) 40px,
+        rgba(0,0,0,0.06) 41px
+      );
+    }
+    /* Blue accent stripe at bottom of CTA */
+    #cta-banner::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 5px;
+      background: var(--brand-blue);
+    }
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+      flex-wrap: wrap;
+    }
+    .cta-text .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--brand-white);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .cta-text .cta-sub {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand-white);
+      color: var(--brand-orange);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .btn-white:hover { transform: translateY(-2px); opacity: 0.92; }
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--brand-white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border-radius: var(--radius);
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: border-color var(--transition);
+    }
+    .btn-white-outline:hover { border-color: var(--brand-white); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    #footer {
+      background: #0A0A0A;
+      border-top: 1px solid var(--brand-border);
+      padding: 60px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .logo { margin-bottom: 16px; }
+    .footer-desc {
+      font-size: 0.88rem;
+      color: var(--brand-steel);
+      line-height: 1.7;
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: var(--brand-card);
+      border: 1px solid var(--brand-border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .social-link:hover { background: var(--brand-orange); border-color: var(--brand-orange); }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--brand-white);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.88rem;
+      color: var(--brand-steel);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--brand-white); }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--brand-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--brand-steel);
+    }
+    .footer-copy span { color: var(--brand-orange); }    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { justify-content: center; text-align: center; }
+    }
+
+    /* ============================================================
+       WHATSAPP FLOAT BUTTON
+    ============================================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      font-size: 1.6rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+    }
+    .whatsapp-pulse {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #25D366;
+      animation: pulse 2.5s ease-out infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================
+       HEADER
+  ======================================================== -->
+  <header id="header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="#hero" class="logo">
+          <span class="logo-band">Band Scap</span>
+          <span class="logo-scap">Escapamentos</span>
+          <span class="logo-year">Desde 1974 · São Paulo</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diferenciais">Por que nós</a></li>
+          <li><a href="#depoimentos">Avaliações</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="https://wa.me/5511974372303" target="_blank" class="whatsapp-nav">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            (11) 97437-2303
+          </a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Por que nós</a>
+      <a href="#depoimentos">Avaliações</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/5511974372303" target="_blank" style="color:#25D366; border:none;">📱 Chamar no WhatsApp</a>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       HERO
+  ======================================================== -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <div class="hero-eyebrow-line"></div>
+            <span>Especialistas em escapamentos — SP</span>
+          </div>
+          <h1 class="hero-title">
+            Escapamentos<br>
+            <span class="highlight">de Alta</span><br>
+            <span class="outline-text">Performance</span>
+          </h1>
+          <p class="hero-sub">
+            Mais de 50 anos de experiência em venda, instalação e manutenção de escapamentos esportivos, originais e inox para todos os modelos de veículos. No coração de São Paulo, na Vila Ema.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/5511974372303?text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Solicitar Orçamento
+            </a>
+            <a href="#servicos" class="btn-outline">Ver Serviços</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">50<span>+</span></div>
+              <div class="stat-label">Anos de história</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">5<span>★</span></div>
+              <div class="stat-label">No Google</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100<span>%</span></div>
+              <div class="stat-label">Satisfação garantida</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-badge">⚡ Atendimento no dia</div>
+          <div class="hero-img-wrap">
+            <!-- Substitua o src pela sua foto real da loja ou de um serviço -->
+            <img
+              src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80"
+              alt="Band Scap Escapamentos – Serviço especializado em SP"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       TRUST BAR
+  ======================================================== -->
+  <div id="trust">
+    <div class="trust-scroll">
+      <!-- Duplicados para loop infinito -->
+      <span class="trust-item">🔧 Mais de 50 anos de mercado</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">⚡ Atendimento rápido e sem enrolação</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">🏆 Empresa familiar, referência em SP</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">✅ Escapamentos originais e esportivos</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">📍 Vila Ema, São Paulo</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">💬 Avaliação 5★ no Google</span>
+      <span class="trust-dot"></span>
+      <!-- cópia para loop -->
+      <span class="trust-item">🔧 Mais de 50 anos de mercado</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">⚡ Atendimento rápido e sem enrolação</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">🏆 Empresa familiar, referência em SP</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">✅ Escapamentos originais e esportivos</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">📍 Vila Ema, São Paulo</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item">💬 Avaliação 5★ no Google</span>
+      <span class="trust-dot"></span>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SERVIÇOS
+  ======================================================== -->
+  <section id="servicos">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">O que fazemos</span>
+        <h2 class="section-title">Serviços<br>Especializados</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <span class="service-icon">🔩</span>
+          <div class="service-name">Escapamentos Esportivos</div>
+          <p class="service-desc">Instalação de escapamentos esportivos que aumentam performance, torque e oferecem o som característico que todo apaixonado por carros quer. Compatível com todos os modelos.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <span class="service-icon">🛡️</span>
+          <div class="service-name">Escapamentos Inox</div>
+          <p class="service-desc">Escapamentos de aço inoxidável de alta durabilidade. Resistência superior à corrosão, acabamento premium e vida útil muito maior que os modelos convencionais.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <span class="service-icon">🔄</span>
+          <div class="service-name">Troca de Silenciador</div>
+          <p class="service-desc">Substituição rápida de silenciadores e abafadores. Diagnóstico gratuito no momento da visita. Serviço concluído em poucas horas, sem deixar o carro parado.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <span class="service-icon">♻️</span>
+          <div class="service-name">Catalisadores</div>
+          <p class="service-desc">Venda e instalação de catalisadores originais e de reposição. Peças compatíveis com as exigências de emissão do DETRAN para aprovação no licenciamento.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-icon">🔍</span>
+          <div class="service-name">Diagnóstico e Manutenção</div>
+          <p class="service-desc">Identificamos vazamentos, rachaduras, pontos de corrosão e desgastes antes que virem problema maior. Laudo técnico completo do sistema de escape do seu veículo.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <span class="service-icon">🚗</span>
+          <div class="service-name">Venda de Peças</div>
+          <p class="service-desc">Estoque completo de peças para o sistema de escapamento: tubulações, flanges, juntas, grampos e mais. Para carros nacionais, importados e motos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       DIFERENCIAIS
+  ======================================================== -->
+  <section id="diferenciais">
+    <div class="container">
+      <div class="diferenciais-grid">
+        <div class="diferenciais-content reveal">
+          <span class="section-label">Por que a Band Scap</span>
+          <h2 class="section-title">Tradição e<br>Confiança desde<br><span style="color:var(--brand-orange)">1974</span></h2>
+          <p class="diferenciais-lead">
+            Somos uma empresa familiar que passou de pai para filho — e isso está em tudo que fazemos. Em mais de 50 anos, construímos uma reputação baseada em honestidade, preço justo e serviço de verdade.
+          </p>
+          <div class="diferenciais-list">
+            <div class="diferencial-item">
+              <div class="diferencial-check">
+                <svg viewBox="0 0 12 12" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+              </div>
+              <div class="diferencial-text"><strong>Empresa familiar de 3ª geração</strong> — os filhos herdaram os princípios do pai, como dizem os próprios clientes.</div>
+            </div>
+            <div class="diferencial-item">
+              <div class="diferencial-check">
+                <svg viewBox="0 0 12 12" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+              </div>
+              <div class="diferencial-text"><strong>Preço justo e transparente</strong> — sem surpresas na hora de pagar. Orçamento antes de qualquer serviço.</div>
+            </div>
+            <div class="diferencial-item">
+              <div class="diferencial-check">
+                <svg viewBox="0 0 12 12" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+              </div>
+              <div class="diferencial-text"><strong>Serviço ágil</strong> — na maioria dos casos, você sai com o carro pronto no mesmo dia.</div>
+            </div>
+            <div class="diferencial-item">
+              <div class="diferencial-check">
+                <svg viewBox="0 0 12 12" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+              </div>
+              <div class="diferencial-text"><strong>Espaço limpo e organizado</strong> — ambiente de trabalho que reflete o cuidado com o serviço e com o seu carro.</div>
+            </div>
+            <div class="diferencial-item">
+              <div class="diferencial-check">
+                <svg viewBox="0 0 12 12" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+              </div>
+              <div class="diferencial-text"><strong>Clientes de 30+ anos</strong> — a melhor prova de qualidade é quem volta sempre.</div>
+            </div>
+          </div>
+        </div>
+        <div class="diferenciais-visual reveal reveal-delay-2">
+          <div class="diff-stat-card">
+            <div class="diff-stat-number">50+</div>
+            <div class="diff-stat-label">Anos de história em São Paulo</div>
+          </div>
+          <div class="diff-stat-card">
+            <div class="diff-stat-number">5★</div>
+            <div class="diff-stat-label">Nota no Google</div>
+          </div>
+          <div class="diff-stat-card">
+            <div class="diff-stat-number">1974</div>
+            <div class="diff-stat-label">Ano de fundação</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MARCAS
+  ======================================================== -->
+  <section id="marcas">
+    <div class="container">
+      <div class="marcas-header reveal">
+        <span class="section-label">Compatibilidade</span>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2rem)">Atendemos todas as marcas</h2>
+      </div>
+      <div class="marcas-grid reveal">
+        <div class="marca-item">Volkswagen</div>
+        <div class="marca-item">Chevrolet</div>
+        <div class="marca-item">Fiat</div>
+        <div class="marca-item">Ford</div>
+        <div class="marca-item">Honda</div>
+        <div class="marca-item">Toyota</div>
+        <div class="marca-item">Hyundai</div>
+        <div class="marca-item">Renault</div>
+        <div class="marca-item">Peugeot</div>
+        <div class="marca-item">Citroën</div>
+        <div class="marca-item">Nissan</div>
+        <div class="marca-item">Jeep</div>
+        <div class="marca-item">BMW</div>
+        <div class="marca-item">Mercedes</div>
+        <div class="marca-item">Audi</div>
+        <div class="marca-item">E muito mais</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       DEPOIMENTOS
+  ======================================================== -->
+  <section id="depoimentos">
+    <div class="container">
+      <div class="depoimentos-header">
+        <div class="reveal">
+          <span class="section-label">Avaliações reais — Google</span>
+          <h2 class="section-title">O que nossos<br>clientes dizem</h2>
+        </div>
+        <div class="rating-summary reveal reveal-delay-1">
+          <div>
+            <div class="rating-number">5.0</div>
+            <div class="rating-stars">★★★★★</div>
+            <div class="rating-count">Google Reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card reveal">
+          <div class="dep-stars">★★★★★</div>
+          <p class="dep-text">"Lugar que levo meus carros a mais de 30 anos, e a qualidade sempre boa, tanto no atendimento como no serviço realizado."</p>
+          <div class="dep-author">
+            <div class="dep-avatar">C</div>
+            <div>
+              <div class="dep-name">Cliente fiel</div>
+              <div class="dep-source">Google · Cliente há 30+ anos</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card reveal reveal-delay-1">
+          <div class="dep-stars">★★★★★</div>
+          <p class="dep-text">"Fui fazer a troca do abafador JK do meu escapamento 4x1. O serviço foi bem rápido e acompanhei o capricho, parabéns! Preço bem acessível, lugar muito limpo e organizado! Funcionários educados e prestativos!"</p>
+          <div class="dep-author">
+            <div class="dep-avatar">R</div>
+            <div>
+              <div class="dep-name">Rafael M.</div>
+              <div class="dep-source">Google Reviews</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card reveal reveal-delay-2">
+          <div class="dep-stars">★★★★★</div>
+          <p class="dep-text">"Excelente atendimento! Melhor preço da região (pesquisei bastante), super eficiente! Parabéns pelo serviço."</p>
+          <div class="dep-author">
+            <div class="dep-avatar">A</div>
+            <div>
+              <div class="dep-name">Ana P.</div>
+              <div class="dep-source">Google Reviews</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card reveal">
+          <div class="dep-stars">★★★★★</div>
+          <p class="dep-text">"Empresa nota 1000. Empresa familiar organizada, uma estrutura muito boa! Fui muito bem atendido e estou satisfeito com o trabalho realizado!"</p>
+          <div class="dep-author">
+            <div class="dep-avatar">M</div>
+            <div>
+              <div class="dep-name">Marcos S.</div>
+              <div class="dep-source">Google Reviews</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card reveal reveal-delay-1">
+          <div class="dep-stars">★★★★★</div>
+          <p class="dep-text">"Loja de excelentes profissionais, fui super atendido e preços justos, parabéns pelo belíssimo trabalho."</p>
+          <div class="dep-author">
+            <div class="dep-avatar">L</div>
+            <div>
+              <div class="dep-name">Lucas T.</div>
+              <div class="dep-source">Google Reviews</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card reveal reveal-delay-2">
+          <div class="dep-stars">★★★★★</div>
+          <p class="dep-text">"Já levei meu Escort, Fit, Civic, Fiesta da minha mãe, HB20 do irmão, Civic da cunhada — sempre tive ótimas experiências com o trampo e atendimento! Mandam muito bem."</p>
+          <div class="dep-author">
+            <div class="dep-avatar">F</div>
+            <div>
+              <div class="dep-name">Felipe K.</div>
+              <div class="dep-source">Google Reviews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       GALERIA
+  ======================================================== -->
+  <section id="galeria">
+    <div class="container">
+      <div class="galeria-header reveal">
+        <div>
+          <span class="section-label">Galeria</span>
+          <h2 class="section-title">Nossos trabalhos<br>& a loja</h2>
+        </div>
+        <a href="https://www.instagram.com/bandscapescapamentos/" target="_blank" class="btn-outline">
+          Ver Instagram →
+        </a>
+      </div>
+      <div class="galeria-grid reveal">
+        <!--
+          INSTRUÇÕES: Substitua os src abaixo pelas suas fotos reais.
+          Para usar fotos do seu iPhone: exporte do Instagram ou da câmera,
+          faça upload junto com este HTML para o GitHub e referencie pelo nome do arquivo.
+          Ex: src="foto-loja-1.jpg"
+        -->
+        <div class="galeria-item">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" alt="Escapamento esportivo instalado" loading="lazy"/>
+          <div class="overlay"></div>
+        </div>
+        <div class="galeria-item">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Detalhe escapamento inox" loading="lazy"/>
+          <div class="overlay"></div>
+        </div>
+        <div class="galeria-item">
+          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&q=80" alt="Serviço na loja" loading="lazy"/>
+          <div class="overlay"></div>
+        </div>
+        <div class="galeria-item">
+          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80" alt="Carro na Band Scap" loading="lazy"/>
+          <div class="overlay"></div>
+        </div>
+        <div class="galeria-item">
+          <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=400&q=80" alt="Peças escapamento" loading="lazy"/>
+          <div class="overlay"></div>
+        </div>
+      </div>
+      <div class="galeria-instagram-cta reveal">
+        <p>Siga no Instagram para ver mais trabalhos e os carros que passam pela Band Scap</p>
+        <a href="https://www.instagram.com/bandscapescapamentos/" target="_blank" class="btn-primary">
+          📸 @bandscapescapamentos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CTA BANNER
+  ======================================================== -->
+  <section id="cta-banner">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <div class="cta-title">Precisando de<br>Escapamento?</div>
+          <p class="cta-sub">Fale agora pelo WhatsApp — orçamento rápido e sem compromisso.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="https://wa.me/5511974372303?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20escapamento." target="_blank" class="btn-white">
+            💬 Chamar no WhatsApp
+          </a>
+          <a href="tel:+551122119818" class="btn-white-outline">
+            📞 (11) 2211-9818
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CONTATO E LOCALIZAÇÃO
+  ======================================================== -->
+  <section id="contato">
+    <div class="container">
+      <div class="contato-grid">
+        <div class="contato-info reveal">
+          <span class="section-label">Como nos encontrar</span>
+          <h2 class="section-title">Localização<br>& Contato</h2>
+          <div class="contato-items">
+            <div class="contato-item">
+              <div class="contato-icon">📍</div>
+              <div>
+                <div class="contato-label">Endereço</div>
+                <div class="contato-value">
+                  Av. Vila Ema, 2343 – Vila Ema<br>
+                  São Paulo – SP, CEP 03281-000
+                </div>
+              </div>
+            </div>
+            <div class="contato-item">
+              <div class="contato-icon">📱</div>
+              <div>
+                <div class="contato-label">WhatsApp</div>
+                <div class="contato-value">
+                  <a href="https://wa.me/5511974372303" target="_blank">(11) 97437-2303</a>
+                </div>
+              </div>
+            </div>
+            <div class="contato-item">
+              <div class="contato-icon">📞</div>
+              <div>
+                <div class="contato-label">Telefone fixo</div>
+                <div class="contato-value">
+                  <a href="tel:+551122119818">(11) 2211-9818</a>
+                </div>
+              </div>
+            </div>
+            <div class="contato-item">
+              <div class="contato-icon">📸</div>
+              <div>
+                <div class="contato-label">Instagram</div>
+                <div class="contato-value">
+                  <a href="https://www.instagram.com/bandscapescapamentos/" target="_blank">@bandscapescapamentos</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="contato-label" style="margin-bottom:12px">Horário de Funcionamento</div>
+            <div class="horario-grid">
+              <div class="horario-dia">Segunda a Sexta</div>
+              <div class="horario-hora">08h às 18h</div>
+              <div class="horario-dia">Sábado</div>
+              <div class="horario-hora">08h às 13h</div>
+              <div class="horario-dia" style="border-bottom:none">Domingo</div>
+              <div class="horario-hora" style="border-bottom:none;color:var(--brand-steel)">Fechado</div>
+            </div>
+            <p style="font-size:0.75rem;color:var(--brand-steel);margin-top:8px">⚠️ Confirme horários pelo WhatsApp antes de visitar</p>
+          </div>
+        </div>
+
+        <div class="contato-map reveal reveal-delay-2">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.5!2d-46.5499!3d-23.5736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zBand+Scap+Escapamentos!5e0!3m2!1spt-BR!2sbr!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização Band Scap Escapamentos"
+          ></iframe>
+          <div class="map-cta">
+            <span class="map-address">Av. Vila Ema, 2343 – Vila Ema, SP</span>
+            <a href="https://maps.google.com/?q=Band+Scap+Escapamentos+Av+Vila+Ema+2343+Sao+Paulo" target="_blank" class="btn-primary" style="padding:10px 20px;font-size:0.85rem">
+              🗺️ Como chegar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FOOTER
+  ======================================================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-band">Band Scap</span>
+            <span class="logo-scap">Escapamentos</span>
+            <span class="logo-year">Desde 1974 · São Paulo</span>
+          </div>
+          <p class="footer-desc">
+            Empresa familiar especializada em escapamentos para veículos desde 1974. Referência em São Paulo em qualidade, honestidade e preço justo. Localizada na Vila Ema, atendemos toda a Grande SP.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/bandscapescapamentos/" target="_blank" class="social-link" title="Instagram">📸</a>
+            <a href="https://wa.me/5511974372303" target="_blank" class="social-link" title="WhatsApp">💬</a>
+            <a href="https://maps.google.com/?q=Band+Scap+Escapamentos" target="_blank" class="social-link" title="Google Maps">📍</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Serviços</div>
+          <ul class="footer-links">
+            <li><a href="#servicos">Escapamentos Esportivos</a></li>
+            <li><a href="#servicos">Escapamentos Inox</a></li>
+            <li><a href="#servicos">Troca de Silenciador</a></li>
+            <li><a href="#servicos">Catalisadores</a></li>
+            <li><a href="#servicos">Diagnóstico</a></li>
+            <li><a href="#servicos">Venda de Peças</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contato</div>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/5511974372303" target="_blank">WhatsApp: (11) 97437-2303</a></li>
+            <li><a href="tel:+551122119818">Telefone: (11) 2211-9818</a></li>
+            <li><a href="#contato">Av. Vila Ema, 2343 – SP</a></li>
+            <li><a href="https://www.instagram.com/bandscapescapamentos/" target="_blank">Instagram</a></li>
+            <li><a href="#contato">Seg–Sex: 08h–18h</a></li>
+            <li><a href="#contato">Sábado: 08h–13h</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 <span>Band Scap Escapamentos Ltda</span> · CNPJ 46.490.819/0001-85 · Todos os direitos reservados</p>
+        <p class="footer-copy">Feito com ❤️ para uma empresa familiar de verdade</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/5511974372303?text=Olá!%20Vi%20o%20site%20de%20vocês%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="whatsapp-float" title="Fale pelo WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // ---- Mobile menu toggle ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    // ---- Scroll reveal ----
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ---- Header scroll effect ----
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.style.background = window.scrollY > 60
+        ? 'rgba(13,13,13,0.98)'
+        : 'rgba(13,13,13,0.92)';
+    });
+
+    // ---- Smooth close mobile nav on resize ----
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) mobileNav.classList.remove('open');
+    });
+  </script>
+</body>
+</html>

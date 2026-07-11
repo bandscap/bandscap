@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Painel SEO Local — Band Scap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --red:#CC1020; --red-dark:#A00D1A; --blue:#003F8A; --blue-light:#2E6FD6;
+    --black:#0D0D0D; --dark:#111620; --card:#161B26; --border:#232B3A;
+    --light:#EEF2F8; --muted:#8FA0B8; --green:#2FB56B;
+    --display:'Barlow Condensed',sans-serif; --body:'Barlow',sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--black);color:var(--light);line-height:1.55;padding:28px 16px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{margin-bottom:26px}
+  .eyebrow{font-family:var(--display);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--blue-light)}
+  h1{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.02;margin:4px 0 6px}
+  h1 .accent{color:var(--red)}
+  .sub{color:var(--muted);font-size:.92rem;max-width:560px}
+
+  /* Manômetro geral */
+  .gauge{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin:20px 0 30px}
+  .gauge-num{font-family:var(--display);font-weight:900;font-size:2.6rem;line-height:1;color:var(--light);min-width:96px}
+  .gauge-num small{font-size:1.1rem;color:var(--muted);font-weight:600}
+  .gauge-bar{flex:1;height:14px;border-radius:99px;background:#0A0E15;border:1px solid var(--border);overflow:hidden;position:relative}
+  .gauge-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,var(--blue) 0%,var(--red) 100%);transition:width .5s cubic-bezier(.4,0,.2,1)}
+  .gauge-label{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:var(--muted)}
+
+  .storage-note{font-size:.78rem;color:var(--muted);margin:-18px 0 26px}
+  .storage-note.err{color:#E8A13C}
+
+  section{margin-bottom:34px}
+  .phase-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-left:4px solid var(--red);padding-left:14px;margin-bottom:14px}
+  section[data-phase="done"] .phase-head{border-left-color:var(--green)}
+  section[data-phase="f2"] .phase-head{border-left-color:var(--blue-light)}
+  section[data-phase="f3"] .phase-head{border-left-color:var(--muted)}
+  .phase-title{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.35rem;line-height:1.1}
+  .phase-title span{display:block;font-size:.78rem;font-weight:600;letter-spacing:.16em;color:var(--muted)}
+  .phase-count{font-family:var(--display);font-weight:700;font-size:1rem;color:var(--muted);white-space:nowrap}
+
+  ul.tasks{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .task{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:12px 14px;cursor:pointer;transition:border-color .2s}
+  .task:hover{border-color:rgba(204,16,32,.45)}
+  .task input{margin-top:4px;width:17px;height:17px;accent-color:var(--red);cursor:pointer;flex-shrink:0}
+  .task-body{flex:1}
+  .task-name{font-weight:600;font-size:.95rem;color:var(--light)}
+  .task-desc{font-size:.83rem;color:var(--muted);margin-top:2px}
+  .task.checked{opacity:.62}
+  .task.checked .task-name{text-decoration:line-through;text-decoration-color:var(--red)}
+  .tag{display:inline-block;font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;padding:1px 7px;margin-left:8px;vertical-align:middle}
+  .tag.gbp{background:rgba(46,111,214,.16);color:var(--blue-light)}
+  .tag.code{background:rgba(204,16,32,.16);color:#FF6B78}
+  .tag.op{background:rgba(47,181,107,.14);color:var(--green)}
+
+  .reset{margin-top:8px;background:none;border:1px solid var(--border);color:var(--muted);font-family:var(--display);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;padding:8px 16px;border-radius:4px;cursor:pointer}
+  .reset:hover{border-color:var(--red);color:var(--light)}
+  .task:focus-within{outline:2px solid var(--blue-light);outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){.gauge-fill{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Plano de dominância local · Vila Ema / Zona Leste</span>
+    <h1>Painel SEO <span class="accent">Band Scap</span></h1>
+    <p class="sub">Acompanhamento das três fases do plano. Marque cada tarefa concluída — o progresso fica salvo e o manômetro sobe.</p>
+  </header>
+
+  <div class="gauge" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="gaugeBar">
+    <div class="gauge-num"><span id="gaugePct">0</span><small>%</small></div>
+    <div style="flex:1">
+      <div class="gauge-label">Pressão total do plano</div>
+      <div class="gauge-bar"><div class="gauge-fill" id="gaugeFill"></div></div>
+    </div>
+  </div>
+  <p class="storage-note" id="storageNote">Progresso salvo automaticamente neste dispositivo.</p>
+
+  <section data-phase="done">
+    <div class="phase-head">
+      <div class="phase-title">Corrigido hoje no código<span>11/07/2026 · já aplicado nos arquivos entregues</span></div>
+      <div class="phase-count" data-count></div>
+    </div>
+    <ul class="tasks" data-group="done">
+      <li data-id="geo-jsonld" data-pre="1"><span class="task-name">Coordenadas GPS reais no JSON-LD<span class="tag code">código</span></span><span class="task-desc">Substituído o placeholder -23.0/-46.0 por -23.5813468, -46.5541471 (medido no Google Maps).</span></li>
+      <li data-id="schema-rico" data-pre="1"><span class="task-name">Schema AutoRepair enriquecido<span class="tag code">código</span></span><span class="task-desc">Adicionados legalName, CNPJ (taxID), foundingDate 1974-06-26, e-mail, hasMap, formas de pagamento e dois telefones (contactPoint).</span></li>
+      <li data-id="catalogo" data-pre="1"><span class="task-name">Catálogo de 6 serviços no schema<span class="tag code">código</span></span><span class="task-desc">hasOfferCatalog com escapamento esportivo, inox, silenciador, catalisador, diagnóstico e ponteiras — cada um com areaServed Zona Leste.</span></li>
+      <li data-id="bairros" data-pre="1"><span class="task-name">São Lucas e Sapopemba adicionados<span class="tag code">código</span></span><span class="task-desc">Incluídos no areaServed do schema, no texto visível da seção de atendimento e na resposta do FAQ (visível + FAQPage).</span></li>
+      <li data-id="iframe" data-pre="1"><span class="task-name">Mapa incorporado recentrado<span class="tag code">código</span></span><span class="task-desc">O iframe antigo apontava ~900 m longe da loja (-23.5736/-46.5499). Agora busca pelo nome + endereço, associando ao perfil do Google.</span></li>
+      <li data-id="meta-geo" data-pre="1"><span class="task-name">Meta tags de geolocalização<span class="tag code">código</span></span><span class="task-desc">geo.region, geo.placename, geo.position e ICBM no &lt;head&gt; — sinal legado, custo zero.</span></li>
+      <li data-id="sitemap" data-pre="1"><span class="task-name">Sitemap com lastmod atualizado<span class="tag code">código</span></span><span class="task-desc">lastmod da home movido para 11/07/2026; blocos das futuras páginas de serviço mantidos comentados.</span></li>
+    </ul>
+  </section>
+
+  <section data-phase="f1">
+    <div class="phase-head">
+      <div class="phase-title">Fase 1 · Imediato<span>Semana 1–2 · publicar e consolidar o GBP</span></div>
+      <div class="phase-count" data-count></div>
+    </div>
+    <ul class="tasks" data-group="f1">
+      <li data-id="deploy"><span class="task-name">Publicar os arquivos corrigidos no GitHub Pages<span class="tag code">código</span></span><span class="task-desc">Substituir index.html e sitemap.xml no repositório e confirmar deploy em bandscap.com.br.</span></li>
+      <li data-id="gsc-inspect"><span class="task-name">Solicitar indexação no Search Console<span class="tag op">operação</span></span><span class="task-desc">A busca pelo domínio ainda não retorna a home — usar Inspeção de URL → Solicitar indexação e reenviar o sitemap.</span></li>
+      <li data-id="gbp-pin"><span class="task-name">Conferir o pin do GBP na coordenada exata<span class="tag gbp">gbp</span></span><span class="task-desc">No painel do perfil, arrastar o marcador para -23.581347, -46.554147 se estiver deslocado.</span></li>
+      <li data-id="gbp-cat"><span class="task-name">Categoria primária: Oficina de escapamentos<span class="tag gbp">gbp</span></span><span class="task-desc">Secundárias: Loja de autopeças e Oficina mecânica.</span></li>
+      <li data-id="gbp-serv"><span class="task-name">Cadastrar os 7 serviços no GBP<span class="tag gbp">gbp</span></span><span class="task-desc">Cada um com descrição de ~300 caracteres contendo keyword + bairro.</span></li>
+      <li data-id="gbp-horarios"><span class="task-name">Horários especiais dos feriados de 2026<span class="tag gbp">gbp</span></span><span class="task-desc">Cadastrar todos de uma vez para eliminar o aviso de horário incerto.</span></li>
+      <li data-id="gbp-qa"><span class="task-name">Publicar 6–8 perguntas e respostas no perfil<span class="tag gbp">gbp</span></span><span class="task-desc">Q&amp;A seeding com keywords: catalisador com nota, solda, ponteiras, bairros atendidos.</span></li>
+      <li data-id="review-link"><span class="task-name">Gerar link curto de avaliação + atalho /avaliacao<span class="tag op">operação</span></span><span class="task-desc">Salvar a mensagem-modelo como resposta rápida no WhatsApp Business; enviar 2–3 h após a entrega, máx. 5/dia.</span></li>
+      <li data-id="review-reply"><span class="task-name">Responder 100% das avaliações em até 48 h<span class="tag op">operação</span></span><span class="task-desc">Sempre citando serviço + bairro + marca do carro na resposta.</span></li>
+    </ul>
+  </section>
+
+  <section data-phase="f2">
+    <div class="phase-head">
+      <div class="phase-title">Fase 2 · 30 dias<span>Citações, páginas de bairro e ritmo de conteúdo</span></div>
+      <div class="phase-count" data-count></div>
+    </div>
+    <ul class="tasks" data-group="f2">
+      <li data-id="apple"><span class="task-name">Apple Business Connect<span class="tag op">operação</span></span><span class="task-desc">Reivindicar a ficha — alimenta Apple Maps, Siri e CarPlay.</span></li>
+      <li data-id="waze"><span class="task-name">Reivindicar o pin no Waze<span class="tag op">operação</span></span><span class="task-desc">Motorista com escapamento furado está dirigindo agora; avaliar depois o pin patrocinado em raio de 5 km.</span></li>
+      <li data-id="bing"><span class="task-name">Bing Places (importar do GBP)<span class="tag op">operação</span></span><span class="task-desc">Importação leva 5 minutos.</span></li>
+      <li data-id="citacoes"><span class="task-name">Padronizar NAP nas citações existentes<span class="tag op">operação</span></span><span class="task-desc">HubbleWeb e Mercado Shops já listam a loja com o fixo (11) 2211-9818 — manter endereço e telefones idênticos em Apontador, GuiaMais, Solutudo, Foursquare/TomTom.</span></li>
+      <li data-id="pilares"><span class="task-name">Publicar 3 páginas pilar de serviço<span class="tag code">código</span></span><span class="task-desc">/escapamentos, /ponteiras-esportivas, /catalisadores — 800+ palavras técnicas; descomentar os blocos do sitemap.</span></li>
+      <li data-id="pg-bairro"><span class="task-name">Publicar 4 páginas de bairro (conteúdo único)<span class="tag code">código</span></span><span class="task-desc">Vila Prudente, São Lucas, Sapopemba, Mooca — rota real, tempo de chegada e depoimento local em cada uma.</span></li>
+      <li data-id="posts"><span class="task-name">Ritmo semanal no GBP<span class="tag op">operação</span></span><span class="task-desc">1 post + 3–5 fotos (antes/depois de solda) + 1 vídeo de 30 s por semana.</span></li>
+      <li data-id="mymaps"><span class="task-name">Google My Maps com rotas dos bairros<span class="tag op">operação</span></span><span class="task-desc">Mapa público "Como chegar saindo de Vila Prudente / São Lucas / Sapopemba / Mooca", embedado no site.</span></li>
+    </ul>
+  </section>
+
+  <section data-phase="f3">
+    <div class="phase-head">
+      <div class="phase-title">Fase 3 · Trimestre<span>Vídeo, imagens e autoridade local</span></div>
+      <div class="phase-count" data-count></div>
+    </div>
+    <ul class="tasks" data-group="f3">
+      <li data-id="youtube"><span class="task-name">Canal no YouTube com vídeos locais<span class="tag op">operação</span></span><span class="task-desc">60–90 s: solda sem mangueira antes/depois, sinais de catalisador morto — título com keyword + Vila Ema, NAP na descrição.</span></li>
+      <li data-id="exif"><span class="task-name">Pipeline de imagens: nome de arquivo + alt + EXIF<span class="tag code">código</span></span><span class="task-desc">Prioridade: nomes descritivos e alt geolocalizado (comprovados); EXIF via exiftool como bônus nas imagens do site.</span></li>
+      <li data-id="imprensa"><span class="task-name">Pauta de imprensa: 52 anos no mesmo endereço<span class="tag op">operação</span></span><span class="task-desc">Portais da Zona Leste e blogs automotivos — um link editorial local vale mais que 50 diretórios.</span></li>
+      <li data-id="parcerias"><span class="task-name">Parcerias de indicação cruzada<span class="tag op">operação</span></span><span class="task-desc">Mecânicas gerais e lojas de pneu vizinhas que não fazem escapamento.</span></li>
+      <li data-id="grid"><span class="task-name">Auditoria mensal do grid de ranking<span class="tag op">operação</span></span><span class="task-desc">Buscas anônimas simulando Vila Prudente e Sapopemba + métricas do GBP: descobertas, ligações e rotas.</span></li>
+    </ul>
+  </section>
+
+  <button class="reset" id="resetBtn">Zerar progresso</button>
+</div>
+
+<script>
+(function(){
+  const KEY='bandscap-seo-progress';
+  let state={};
+  let storageOk=false;
+  const note=document.getElementById('storageNote');
+
+  function buildTasks(){
+    document.querySelectorAll('ul.tasks li').forEach(li=>{
+      const id=li.dataset.id;
+      const name=li.querySelector('.task-name');
+      const desc=li.querySelector('.task-desc');
+      const label=document.createElement('label');
+      label.className='task';
+      const cb=document.createElement('input');
+      cb.type='checkbox'; cb.dataset.id=id;
+      const body=document.createElement('div'); body.className='task-body';
+      body.appendChild(name); body.appendChild(desc);
+      label.appendChild(cb); label.appendChild(body);
+      li.replaceWith(label);
+      label.dataset.pre=li.dataset.pre||'';
+      cb.addEventListener('change',()=>{ state[id]=cb.checked; render(); save(); });
+    });
+  }
+
+  function render(){
+    let total=0, done=0;
+    document.querySelectorAll('section').forEach(sec=>{
+      let t=0,d=0;
+      sec.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+        const checked=!!state[cb.dataset.id];
+        cb.checked=checked;
+        cb.closest('.task').classList.toggle('checked',checked);
+        t++; if(checked)d++;
+      });
+      const c=sec.querySelector('[data-count]');
+      if(c)c.textContent=d+' / '+t;
+      total+=t; done+=d;
+    });
+    const pct=total?Math.round(done/total*100):0;
+    document.getElementById('gaugePct').textContent=pct;
+    document.getElementById('gaugeFill').style.width=pct+'%';
+    document.getElementById('gaugeBar').setAttribute('aria-valuenow',pct);
+  }
+
+  async function save(){
+    if(!storageOk)return;
+    try{ await window.storage.set(KEY,JSON.stringify(state)); }
+    catch(e){ note.textContent='Não foi possível salvar — o progresso vale só para esta sessão.'; note.classList.add('err'); }
+  }
+
+  async function load(){
+    if(typeof window.storage==='undefined'){
+      note.textContent='Progresso mantido apenas nesta sessão (armazenamento indisponível).';
+      note.classList.add('err');
+      return;
+    }
+    storageOk=true;
+    try{
+      const r=await window.storage.get(KEY);
+      if(r&&r.value)state=JSON.parse(r.value);
+    }catch(e){ /* chave ainda não existe — estado inicial */ }
+  }
+
+  document.getElementById('resetBtn').addEventListener('click',async()=>{
+    state={};
+    // itens já corrigidos hoje permanecem marcados por padrão
+    document.querySelectorAll('label.task[data-pre="1"] input').forEach(cb=>{ state[cb.dataset.id]=true; });
+    render(); save();
+  });
+
+  buildTasks();
+  load().then(()=>{
+    if(Object.keys(state).length===0){
+      document.querySelectorAll('label.task[data-pre="1"] input').forEach(cb=>{ state[cb.dataset.id]=true; });
+      save();
+    }
+    render();
+  });
+})();
+</script>
+</body>
+</html>
